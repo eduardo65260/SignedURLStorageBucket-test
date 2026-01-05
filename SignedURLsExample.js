@@ -16,7 +16,7 @@ async function manageFiles() {
   const expiresAt = Date.now() + 60 * 60 * 1000; // 1 hour from now
 
   // GENERATE DOWNLOAD URL
-  const [downloadUrl] = file.getSignedUrl({
+  const [downloadUrl] = await file.getSignedUrl({
     action: 'read',
     expires: expiresAt
   }).then(urls => urls[0]).catch(err=>{
